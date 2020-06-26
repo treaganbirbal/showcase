@@ -24,3 +24,21 @@ router.get('/:id', async (req, res, next) => {
     next(error)
   }
 })
+
+router.post('/', async (req, res, next) => {
+  try {
+    const newProject = await Project.create({
+      name: req.body.name,
+      description: req.body.description,
+      contributors: [1],
+      likes: req.body.likes,
+      userId: 1
+    })
+    res.json({
+      message: 'Project Created Successfully',
+      project: newProject
+    })
+  } catch (error) {
+    next(error)
+  }
+})
