@@ -19,3 +19,25 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+.allProjects-ctn {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+}
+
+.allProjects-ctn > h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 70px;
+  justify-items: center;
+}
+
+.list-ctn {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+}
