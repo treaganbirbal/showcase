@@ -9,11 +9,31 @@ class SingleProject extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSingleProject(1)
+    this.props.fetchSingleProject(this.props.match.params.id)
   }
   render() {
+    const {project} = this.props.project
     console.log('props from singleProject', this.props)
-    return <h1>SingleProject</h1>
+    if (!this.props.project.project) {
+      return <p>...loading</p>
+    }
+
+    return (
+      <div className="singleProject-ctn">
+        <h1>{project.name}</h1>
+        <img src={project.imageUrl} alt="project_image" />
+        <p>Applause: {project.likes}</p>
+        <h3>
+          About <a href={project.link}>{project.name}</a>:
+        </h3>
+        <p>{project.description}</p>
+        <p>Created By: {project.user.userName}</p>
+        <div className="comments-ctn">
+          <h3>Comments</h3>
+          <ul />
+        </div>
+      </div>
+    )
   }
 }
 

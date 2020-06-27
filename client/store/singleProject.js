@@ -11,7 +11,7 @@ const getProject = requestedProject => ({
 })
 
 //state
-const initialProject = []
+const initialProject = {}
 
 //thunk
 export const fetchSingleProject = id => {
