@@ -36,7 +36,7 @@ async function seed() {
     Project.create({
       name: 'ShopX',
       description: 'Book new experiences',
-      contributors: [],
+      contributors: ['Ekaterina Serga', 'Courtney Edwards', 'Nagi Soto'],
       likes: 10,
       userId: 3,
       link: 'http://shop-x.herokuapp.com/'

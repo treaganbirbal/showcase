@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  width: 80vw;
 }
 
 a {
@@ -18,4 +19,37 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.allProjects-ctn {
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+}
+
+.allProjects-ctn > h1 {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 70px;
+  justify-items: center;
+}
+
+.list-ctn {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 5px;
+  width: 400px;
+  align-items: flex-start;
+}
+
+.logo {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+p {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 18px;
 }
