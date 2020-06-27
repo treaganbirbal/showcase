@@ -16,20 +16,20 @@ router.get('/:id', async (req, res, next) => {
     let projectId = req.params.id
     const singleProject = await Project.findByPk(
       projectId,
-      {include: [{model: User}, {model: Comment}]},
-      {
-        attributes: [
-          'name',
-          'description',
-          'contributors',
-          'likes',
-          'imageUrl',
-          'likes',
-          'userId',
-          'userName',
-          'comments'
-        ]
-      }
+      {include: [{model: User}, {model: Comment}]}
+      //   {
+      //     attributes: [
+      //       'name',
+      //       'description',
+      //       'contributors',
+      //       'likes',
+      //       'imageUrl',
+      //       'likes',
+      //       'userId',
+      //       'userName',
+      //       'comments'
+      //     ]
+      //   }
     )
     if (!singleProject) {
       res.status(404).json('No Project Found')

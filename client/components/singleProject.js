@@ -34,12 +34,11 @@ class SingleProject extends React.Component {
           Created By: {project.user.userName}{' '}
           <Link to={project.user.socialMedia}>LinkedIN</Link>
           {project.contributors.map((contributor, i) => {
-            return <p key={i}>{contributor}</p>
+            return <li key={i}>{contributor}</li>
           })}
         </p>
         <div className="comments-ctn">
           <h3>Comments</h3>
-          <ul />
         </div>
       </div>
     )
