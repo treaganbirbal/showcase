@@ -39,6 +39,9 @@ class SingleProject extends React.Component {
         </p>
         <div className="comments-ctn">
           <h3>Comments</h3>
+          {project.comments.map(comment => {
+            return <li>{comment.comment}</li>
+          })}
         </div>
       </div>
     )
