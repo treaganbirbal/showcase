@@ -1,5 +1,6 @@
 body {
   font-family: sans-serif;
+  width: 80vw;
 }
 
 a {
@@ -31,7 +32,7 @@ h1 {
 }
 
 .allProjects-ctn > h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 70px;
   justify-items: center;
 }
@@ -40,4 +41,15 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   margin: 5px;
+  width: 400px;
+  align-items: flex-start;
+}
+
+.logo {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+p {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: 18px;
 }
