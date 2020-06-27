@@ -1,5 +1,6 @@
 import React from 'react'
 import {fetchSingleProject} from '../store/singleProject'
+import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 class SingleProject extends React.Component {
@@ -22,15 +23,18 @@ class SingleProject extends React.Component {
       <div className="singleProject-ctn">
         <h1>{project.name}</h1>
         <img src={project.imageUrl} alt="project_image" />
-        <p>Applause: {project.likes}</p>
+        <p>
+          Applause: {project.likes} <span>-</span> <span>+</span>
+        </p>
         <h3>
           About <a href={project.link}>{project.name}</a>:
         </h3>
         <p>{project.description}</p>
         <p>
-          Created By: {project.user.userName},{' '}
-          {project.contributors.map(conctributor => {
-            return <p>{conctributor}</p>
+          Created By: {project.user.userName}{' '}
+          <Link to={project.user.socialMedia}>LinkedIN</Link>
+          {project.contributors.map((contributor, i) => {
+            return <p key={i}>{contributor}</p>
           })}
         </p>
         <div className="comments-ctn">

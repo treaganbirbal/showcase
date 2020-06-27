@@ -33,6 +33,9 @@ const User = db.define('user', {
   },
   profileImg: {
     type: Sequelize.STRING
+  },
+  socialMedia: {
+    type: Sequelize.STRING
   }
 })
 
