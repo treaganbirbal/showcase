@@ -15,6 +15,7 @@ User.hasMany(Project)
 Project.belongsTo(User)
 Comment.belongsTo(Project)
 Comment.belongsToMany(Project, {through: 'Project_Comments'})
+Comment.belongsToMany(User, {through: 'User_Comments'})
 
 /**
  * We'll export all of our models here, so that any time a module needs a model,
