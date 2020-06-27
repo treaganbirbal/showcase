@@ -27,7 +27,12 @@ class SingleProject extends React.Component {
           About <a href={project.link}>{project.name}</a>:
         </h3>
         <p>{project.description}</p>
-        <p>Created By: {project.user.userName}</p>
+        <p>
+          Created By: {project.user.userName},{' '}
+          {project.contributors.map(conctributor => {
+            return <p>{conctributor}</p>
+          })}
+        </p>
         <div className="comments-ctn">
           <h3>Comments</h3>
           <ul />
