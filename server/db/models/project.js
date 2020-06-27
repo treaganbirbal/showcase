@@ -18,6 +18,14 @@ const Project = db.define('projects', {
   likes: {
     type: Sequelize.INTEGER,
     defaultValue: 0
+  },
+  imageUrl: {
+    type: Sequelize.STRING,
+    defaultValue:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRmXf3Eez6CZ-ILO9-YhC3qlZpkzSOf5p3qfg&usqp=CAU'
+  },
+  link: {
+    type: Sequelize.STRING
   }
 })
 

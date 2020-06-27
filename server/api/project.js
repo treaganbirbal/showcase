@@ -32,7 +32,8 @@ router.post('/', async (req, res, next) => {
       description: req.body.description,
       contributors: [1],
       likes: req.body.likes,
-      userId: 1
+      userId: 1,
+      imageUrl: req.body.imageUrl
     })
     res.json({
       message: 'Project Created Successfully',
@@ -52,7 +53,8 @@ router.put('/:id', async (req, res, next) => {
         description: req.body.description,
         constributors: req.body.constributors,
         likes: req.body.likes,
-        userId: req.body.userId
+        userId: req.body.userId,
+        imageUrl: req.body.imageUrl
       },
       {
         where: {
@@ -70,6 +72,31 @@ router.put('/:id', async (req, res, next) => {
         message: 'Project updated successfully',
         project: updatedProject
       })
+    }
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const projectId = req.params.id
+    const project = await Project.findOne({
+      where: {
+        id: projectId
+      }
+    })
+    if (project) {
+      Project.destroy({
+        where: {
+          id: projectId
+        }
+      })
+      res.json({
+        message: 'Project deleted successfully'
+      })
+    } else {
+      res.sendStatus(404)
     }
   } catch (error) {
     console.log(error)

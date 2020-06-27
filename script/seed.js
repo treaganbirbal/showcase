@@ -9,7 +9,8 @@ async function seed() {
 
   const users = await Promise.all([
     User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
+    User.create({email: 'murphy@email.com', password: '123'}),
+    User.creat({email: 'trey@gmail.com', password: '123'})
   ])
 
   const projects = await Promise.all([
@@ -18,14 +19,31 @@ async function seed() {
       description: 'Social platform to never eat alone',
       contributors: [2],
       likes: 3,
-      userId: 1
+      userId: 3
+    }),
+    Project.create({
+      name: 'DiffRent',
+      description: 'Platform for Landlords & Tenants to communicate',
+      contributors: [],
+      likes: 10,
+      userId: 3,
+      link: 'https://diff-rent.herokuapp.com/'
     }),
     Project.create({
       name: 'ShopX',
       description: 'Book new experiences',
       contributors: [],
       likes: 10,
-      userId: 2
+      userId: 3,
+      link: 'http://shop-x.herokuapp.com/'
+    }),
+    Project.create({
+      name: 'HikeMe!',
+      description: 'Find a hiking trail near you',
+      contributors: [],
+      likes: 5,
+      userId: 3,
+      link: 'http://hikeme.herokuapp.com/'
     })
   ])
 
