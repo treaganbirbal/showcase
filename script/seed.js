@@ -14,7 +14,12 @@ async function seed() {
       password: '123',
       userName: 'murphy'
     }),
-    User.create({email: 'trey@gmail.com', password: '123', userName: 'trey'})
+    User.create({
+      email: 'trey@gmail.com',
+      password: '123',
+      userName: 'trey',
+      socialMedia: 'www.linkedin.com/in/treagan-birbal'
+    })
   ])
 
   const projects = await Promise.all([
