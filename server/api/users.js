@@ -62,4 +62,21 @@ router.put('/:id', async (req, res, next) => {
   }
 })
 
-
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const userId = req.params.id
+    const user = User.findOne({where: {id: userId}})
+    if (user) {
+      await User.destroy({
+        where: {
+          id: userId
+        }
+      })
+      res.send('User was Deleted')
+    } else {
+      res.sendStatus(404)
+    }
+  } catch (error) {
+    next(error)
+  }
+})
