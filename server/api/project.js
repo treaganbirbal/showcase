@@ -42,3 +42,36 @@ router.post('/', async (req, res, next) => {
     next(error)
   }
 })
+
+router.put('/:id', async (req, res, next) => {
+  try {
+    const projectId = req.params.id
+    await Project.update(
+      {
+        name: req.body.name,
+        description: req.body.description,
+        constributors: req.body.constributors,
+        likes: req.body.likes,
+        userId: req.body.userId
+      },
+      {
+        where: {
+          id: projectId
+        }
+      }
+    )
+    if (!projectId) {
+      res.sendStatus(500)
+    } else {
+      const updatedProject = await Project.findOne({
+        where: {id: projectId}
+      })
+      res.json({
+        message: 'Project updated successfully',
+        project: updatedProject
+      })
+    }
+  } catch (error) {
+    console.log(error)
+  }
+})
