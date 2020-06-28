@@ -1,5 +1,6 @@
 import React from 'react'
 import {fetchSingleProject} from '../store/singleProject'
+import {fetchUsers} from '../store/allUsers'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
@@ -11,6 +12,7 @@ class SingleProject extends React.Component {
 
   componentDidMount() {
     this.props.fetchSingleProject(this.props.match.params.id)
+    this.props.fetchUsers()
   }
   render() {
     const {project} = this.props.project
@@ -39,6 +41,9 @@ class SingleProject extends React.Component {
         </p>
         <div className="comments-ctn">
           <h3>Comments</h3>
+          {project.comments.map(comment => {
+            return <li>{comment.comment}</li>
+          })}
         </div>
       </div>
     )
@@ -46,12 +51,16 @@ class SingleProject extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {project: state.project}
+  return {
+    project: state.project,
+    users: state.users
+  }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchSingleProject: id => dispatch(fetchSingleProject(id))
+    fetchSingleProject: id => dispatch(fetchSingleProject(id)),
+    fetchUsers: () => dispatch(fetchUsers())
   }
 }
 
