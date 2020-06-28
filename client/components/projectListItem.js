@@ -16,6 +16,10 @@ const ProjectListItem = props => {
             height="200"
           />
         </Link>
+        <p>created by:</p>
+        <Link to={`/users/profiles/${project.user.id}`}>
+          {project.user.userName}
+        </Link>
       </div>
     )
   })
