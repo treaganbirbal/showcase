@@ -10,6 +10,7 @@ class UserProfile extends React.Component {
     this.props.fetchUser(this.props.match.params.id)
   }
   render() {
+    console.log('props from userProfile', this.props)
     return <h1>Profile</h1>
   }
 }

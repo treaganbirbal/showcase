@@ -25,7 +25,8 @@ const removeUser = () => ({type: REMOVE_USER})
 
 export const fetchUser = id => async dispatch => {
   try {
-    const {data} = axios.get(`api/user/${id}`)
+    const {data} = await axios.get(`/api/users/${id}`)
+    console.log('data', data)
     dispatch(gotUser(data))
   } catch (error) {
     console.log(error)
